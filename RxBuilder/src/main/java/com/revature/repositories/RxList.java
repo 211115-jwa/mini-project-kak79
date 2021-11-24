@@ -7,7 +7,7 @@ import com.revature.models.Rx;
 
 public class RxList implements RxDao {
 	
-	List<Rx> allRxs = new ArrayList<>();
+	public static List<Rx> allRxs = new ArrayList<>();
 	Rx rx1 = new Rx(1, "Topomax", 30, "200 mg", "bid");
 	Rx rx2 = new Rx(2, "Cymbalta", 30, "90 mg", "qd");
 	Rx rx3 = new Rx(3, "Adderall", 30, "25 mg", "am");
@@ -23,13 +23,20 @@ public class RxList implements RxDao {
 		
 	@Override
 	public List<Rx> getAll() {
-		return this.allRxs;
+		return RxList.allRxs;
 	}
 
 	@Override
-	public int getRxId(Rx rx) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getRxId(String name, List<Rx> allRxs) {
+		int id = -1;
+	    for (Rx rx : allRxs) {
+	        if (rx.getName().equals(name)) {
+	            id = rx.getId();
+	            return id;
+	        }
+	    }
+	    System.out.println(id);
+	    return id;
 	}
 
 	@Override

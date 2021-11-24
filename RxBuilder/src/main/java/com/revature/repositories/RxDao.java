@@ -8,7 +8,7 @@ public interface RxDao {
 	
 	List<Rx> getAll();
 	
-	int getRxId(Rx rx);
+	int getRxId(String name, List<Rx> allRxs);
 	
 	Rx addNewRx(Rx rx);
 	

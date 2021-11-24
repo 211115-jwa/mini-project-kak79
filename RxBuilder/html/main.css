@@ -1,0 +1,18 @@
+html{
+  font-family: fantasy;
+  background-color: darkslategrey;
+  text-align: center;
+}
+
+.header{
+  font-size: 40px;
+}
+
+.hr{
+  height:5px; 
+  width:75%; 
+  border-width:0; 
+  color:black; 
+  background-color:black; 
+  padding: 5px;
+}
