@@ -27,16 +27,9 @@ public class RxList implements RxDao {
 	}
 
 	@Override
-	public int getRxId(String name, List<Rx> allRxs) {
-		int id = -1;
-	    for (Rx rx : allRxs) {
-	        if (rx.getName().equals(name)) {
-	            id = rx.getId();
-	            return id;
-	        }
-	    }
-	    System.out.println(id);
-	    return id;
+	public Rx getRxId(String name, List<Rx> allRxs) {
+		
+	    return null;
 	}
 
 	@Override

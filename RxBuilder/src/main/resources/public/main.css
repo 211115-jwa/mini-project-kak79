@@ -1,0 +1,42 @@
+html{
+  font-family: fantasy;
+  background-color: darkslategrey;
+  text-align: center;
+}
+
+.header{
+  font-size: 40px;
+}
+
+.hr{
+  height:5px; 
+  width:75%; 
+  border-width:0; 
+  color:black; 
+  background-color:black; 
+  padding: 5px;
+}
+
+#title1{
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.label{
+  font-size: 21px;
+  padding: 6px;
+}
+
+.input{
+  font-size: 18px;
+}
+
+.button{
+  background-color: powderblue;
+  color: black;
+  padding: 10px 30px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 12px;
+  font-family: fantasy;
+}
