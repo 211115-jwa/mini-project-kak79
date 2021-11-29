@@ -16,8 +16,6 @@ import com.revature.repositories.RxList;
 
 public class RxTests {
 	
-	List<Rx> allRxs = RxList.allRxs;
-	
 	private RxDao rd = new RxList();
 	
 	@BeforeEach

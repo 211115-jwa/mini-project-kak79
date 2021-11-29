@@ -10,7 +10,7 @@ public interface RxDao {
 	
 	Rx getRxId(String name, List<Rx> allRxs);
 	
-	Rx addNewRx(Rx rx);
+	Rx addNewRx(List<Rx> rx);
 	
 	boolean deleteRx(int rxId);
 

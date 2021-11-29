@@ -4,15 +4,23 @@ import java.util.Objects;
 
 public class Rx {
 	
-	protected int id;
-	protected String name;
-	protected int quantity;
-	protected String dosage;
-	protected String instructions;
+	public int id;
+	public String name;
+	public int quantity;
+	public String dosage;
+	public String instructions;
 	
 	public Rx(int id, String name, int quantity, String dosage, String instructions) {
 		super();
 		this.id = id;
+		this.name = name;
+		this.quantity = quantity;
+		this.dosage = dosage;
+		this.instructions = instructions;
+	}
+	
+	public Rx(String name, int quantity, String dosage, String instructions) {
+		super();
 		this.name = name;
 		this.quantity = quantity;
 		this.dosage = dosage;
@@ -29,6 +37,10 @@ public class Rx {
 		this.name = name;
 		this.dosage = dosage;
 		this.instructions = instructions;
+	}
+	
+	public Rx() {
+		super();
 	}
 
 	public int getId() {
