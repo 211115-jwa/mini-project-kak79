@@ -9,13 +9,14 @@ public class RxService {
 	
 	List<Rx> allRxs = RxList.allRxs;
 	
-	private RxList rl = new RxList();
+	RxList rl = new RxList();
 
 	public void getAll() {
+		String y = "http://localhost:8080/get-all-rxs?";
 		if(rl != null) {
-			"http://localhost:8080/get-all-rxs?" = "http:localhost:8080/allResult1"  
+			y = "http:localhost:8080/allResult1"; 
 		}else {
-			"http://localhost:8080/get-all-rxs?" = "http:localhost:8080/allResult2"
+			y = "http:localhost:8080/allResult2";
 		}
 	}
 	
