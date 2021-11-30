@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.models.Rx;
-import com.revature.repositories.RxDao;
-import com.revature.repositories.RxList;
+
 
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
@@ -18,7 +17,7 @@ public class Driver {
 //		Rx rx3 = new Rx(3, "Adderall", 30, "25 mg", "am");
 //		Rx rx4 = new Rx(4, "Latuda", 30, "60 mg", "am");
 		
-		RxDao rd = new RxList();
+		
 		List<Rx> rxs = new ArrayList<>();
 		
 		Javalin app = Javalin.create(config -> {
@@ -40,9 +39,15 @@ public class Driver {
         	rx.dosage = ctx.formParam("dosage");
         	rx.instructions = ctx.formParam("instructions");
         	
-        	Rx rxn = new Rx(rx.name, rx.quantity, rx.dosage, rx.instructions);
-        	rd.addNewRx(rxn);
-//        	rxs.add(rxn);
+        	String text = "";
+        	
+        	for(Rx eachRx : rxs) {
+        		if (eachRx != null) {
+        			text = += eachRx.name + " " + eachRx.quantity
+        					+ " " + eachRx.dosage + " "
+        					+ eachRx.instructions + "<br>";
+        		}
+        	}
         	
         	
         });
