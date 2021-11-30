@@ -17,18 +17,17 @@ public class Driver {
 		Rx rx3 = new Rx(3, "Adderall", 30, "25 mg", "1 X a Day at breakfast");
 		Rx rx4 = new Rx(4, "Latuda", 30, "60 mg", "1 X a Day at breakfast");
 		
+		List<Rx> allRxs = new ArrayList<>();
+    	allRxs.add(rx1);  //a
+    	allRxs.add(rx2);  //b
+    	allRxs.add(rx3);  //c
+    	allRxs.add(rx4);  //d
 		
 		Javalin app = Javalin.create(config -> {
             config.addStaticFiles("/public", Location.CLASSPATH);
         }).start(8080);
 
         app.get("/get-all-rxs", ctx -> {
-        	
-        	List<Rx> allRxs = new ArrayList<>();
-        	allRxs.add(rx1);  //a
-        	allRxs.add(rx2);  //b
-        	allRxs.add(rx3);  //c
-        	allRxs.add(rx4);  //d
         	
         	String htmlString = "<html style= "
         			+ "\"font-family: fantasy; "
@@ -47,12 +46,6 @@ public class Driver {
         
         app.get("/get-one-rx-by-name", ctx -> {
         	
-        	List<Rx> allRxs = new ArrayList<>();
-        	allRxs.add(rx1);  //a
-        	allRxs.add(rx2);  //b
-        	allRxs.add(rx3);  //c
-        	allRxs.add(rx4);  //d
-        	
         	String htmlString = "<html style= "
         			+ "\"font-family: fantasy; "
         			+ "color: white;"
@@ -62,12 +55,10 @@ public class Driver {
         	
         	Rx rx = new Rx();
         	
-        	rx.name = ctx.formParam("name");
+        	rx.name = ctx.queryParam("medName");
         	
-        	System.out.println(rx.name);
         	
         	for (Rx listItem : allRxs) {
-        		System.out.println(listItem.name);
         		if(rx.name.equals(listItem.name)) {
         			htmlString += "<p>" + listItem.dosage + " " + listItem.instructions + "</p>";
         		}
@@ -80,20 +71,15 @@ public class Driver {
         
         app.post("/add-rx", ctx -> {
         	
-        	List<Rx> allRxs = new ArrayList<>();
-        	allRxs.add(rx1);  //a
-        	allRxs.add(rx2);  //b
-        	allRxs.add(rx3);  //c
-        	allRxs.add(rx4);  //d
-        	
         	Rx rx = new Rx();
-        	        	
+        	        	        	
+        	rx.id = rx.setId(allRxs.size() + 1);
         	rx.name = ctx.formParam("name");
-//        	rx.quantity = Integer.parseInt(ctx.formParam("quantity"));
+        	rx.quantity = Integer.parseInt(ctx.formParam("quantity"));
         	rx.dosage = ctx.formParam("dosage");
         	rx.instructions = ctx.formParam("instructions");
         	
-        	Rx rxn = new Rx(rx.name, rx.dosage, rx.instructions);
+        	Rx rxn = new Rx(rx.id, rx.name, rx.quantity, rx.dosage, rx.instructions);
         	allRxs.add(rxn);
         	
         	String htmlString = "<html style= "
@@ -103,11 +89,9 @@ public class Driver {
         			+ "text-align: center; \" > "
         			+ "<h1><u><strong>ALL PRESCRIPTIONS</strong></u></h1>";
         	
-        	for(Rx eachRx : allRxs) {
-        		htmlString += "<p>" + eachRx.name 
-        					+ " " + eachRx.dosage + " "
-        					+ eachRx.instructions + "</p>";
-        	}
+        	for (Rx listItem : allRxs) {
+         	   htmlString += "<p>" + listItem + "</p>";
+         	}
         	
         	ctx.html(htmlString);
         	
