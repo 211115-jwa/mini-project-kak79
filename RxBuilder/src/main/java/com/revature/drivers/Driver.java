@@ -18,8 +18,6 @@ public class Driver {
 		Rx rx4 = new Rx(4, "Latuda", 30, "60 mg", "1 X a Day at breakfast");
 		
 		
-		List<Rx> rxs = new ArrayList<>();
-		
 		Javalin app = Javalin.create(config -> {
             config.addStaticFiles("/public", Location.CLASSPATH);
         }).start(8080);
@@ -66,8 +64,11 @@ public class Driver {
         	
         	rx.name = ctx.formParam("name");
         	
+        	System.out.println(rx.name);
+        	
         	for (Rx listItem : allRxs) {
-        		if(rx.name == listItem.name) {
+        		System.out.println(listItem.name);
+        		if(rx.name.equals(listItem.name)) {
         			htmlString += "<p>" + listItem.dosage + " " + listItem.instructions + "</p>";
         		}
         	   
