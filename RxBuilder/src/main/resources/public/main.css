@@ -2,6 +2,7 @@ html{
   font-family: fantasy;
   background-color: darkslategrey;
   text-align: center;
+  color: white;
 }
 
 .header{
@@ -12,8 +13,8 @@ html{
   height:5px; 
   width:75%; 
   border-width:0; 
-  color:black; 
-  background-color:black; 
+  color:white; 
+  background-color:white; 
   padding: 5px;
 }
 
@@ -32,8 +33,8 @@ html{
 }
 
 .button{
-  background-color: powderblue;
-  color: black;
+  background-color: darkcyan;
+  color: white;
   padding: 10px 30px;
   font-size: 20px;
   font-weight: 700;
