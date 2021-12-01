@@ -1,14 +1,18 @@
-package com.revature.models;
+package com.revature.models;  // name of the package
 
 import java.util.Objects;
 
-public class Rx {
+public class Rx {  // name of the class
 	
-	public int id;
+	public int id; 
 	public String name;
 	public int quantity;
 	public String dosage;
 	public String instructions;
+	
+	/*
+	 * 	lines 7 through 11 are where I declare the variables the make up a prescription
+	 */
 	
 	public Rx(int id, String name, int quantity, String dosage, String instructions) {
 		super();
@@ -42,6 +46,12 @@ public class Rx {
 	public Rx() {
 		super();
 	}
+	
+	/*
+	 *  lines 17 - 48 are my 5 constructors.  I ended up not needing this many,
+	 *  but I wasn't sure what I would need when I built them.  Having different
+	 *  types of Rx() available for use comes in handy as you are coding :D
+	 */
 
 	public int getId() {
 		return id;
@@ -83,16 +93,30 @@ public class Rx {
 		this.instructions = instructions;
 	}
 
+	/*
+	 *  lines 56 - 94 are my getters and setters.  I didn't necessarily need all of them 
+	 *  because I made my Rx variables public, but I did use setId and getId.
+	 *  They can come in handy.
+	 */
+	
 	@Override
 	public String toString() {
 		return "Rx [id=" + id + ", name=" + name + ", quantity=" + quantity + ", dosage=" + dosage + ", instructions="
 				+ instructions + "]";
 	}
+	
+	/*
+	 * to string method - inherited from Object class
+	 */
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(dosage, id, instructions, name, quantity);
 	}
+	
+	/*
+	 * hashCode - inherited from Object class
+	 */
 
 	@Override
 	public boolean equals(Object obj) {
@@ -108,6 +132,8 @@ public class Rx {
 				&& quantity == other.quantity;
 	}
 	
-	
+	/*
+	 * equals - inherited from Object class
+	 */
 
 }
